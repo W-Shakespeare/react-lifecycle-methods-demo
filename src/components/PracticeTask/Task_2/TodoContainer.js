@@ -10,7 +10,11 @@ class TodoContainer extends Component {
   render() {
     return (
       <div>
-        <TodoComponent />
+        <ul>
+          {this.state.map((objTodo) => {
+            <TodoComponent todo={objTodo.todo} id={objTodo.id} />;
+          })}
+        </ul>
       </div>
     );
   }
