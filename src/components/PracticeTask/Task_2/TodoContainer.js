@@ -11,8 +11,8 @@ class TodoContainer extends Component {
     return (
       <div>
         <ul>
-          {this.state.map((objTodo) => {
-            <TodoComponent todo={objTodo.todo} id={objTodo.id} />;
+          {this.state.arrTodo.map((objTodo) => {
+            return <TodoComponent todo={objTodo.todo} id={objTodo.id} />;
           })}
         </ul>
       </div>
