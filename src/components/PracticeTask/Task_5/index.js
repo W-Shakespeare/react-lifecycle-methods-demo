@@ -7,6 +7,21 @@ export default class PracticeTask extends Component {
       user: null,
     };
   }
+  componentDidMount() {
+    this.getUsersDataFromServer();
+  }
+  getUsersDataFromServer = () => {
+    let url = "https://jsonplaceholder.typicode.com/posts";
+    fetch(url)
+      .then((res) => {
+        return res.json();
+      })
+      .then((dataJson) => {
+        this.setState({
+          user: dataJson,
+        });
+      });
+  };
   render() {
     return (
       <div>
