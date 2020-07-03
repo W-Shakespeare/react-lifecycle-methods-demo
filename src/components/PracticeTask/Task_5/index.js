@@ -5,6 +5,7 @@ export default class PracticeTask extends Component {
     super(props);
     this.state = {
       user: null,
+      loading: true,
     };
   }
   componentDidMount() {
@@ -17,15 +18,25 @@ export default class PracticeTask extends Component {
         return res.json();
       })
       .then((dataJson) => {
+        console.log(dataJson[0].title);
         this.setState({
           user: dataJson,
+          loading: false,
         });
       });
   };
   render() {
     return (
       <div>
-        <User />
+        {this.state.loading ? (
+          <p>...Loading</p>
+        ) : (
+          this.state.user.map((userObj) => {
+            return (
+              <User id={userObj.id} title={userObj.title} body={userObj.body} />
+            );
+          })
+        )}
       </div>
     );
   }
