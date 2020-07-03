@@ -5,6 +5,7 @@ export default class PracticeTask extends Component {
     this.state = {
       maxNumber: "",
       minNumber: "",
+      generate: null,
     };
   }
   onInputChange = (e) => {
@@ -13,6 +14,14 @@ export default class PracticeTask extends Component {
       [name]: value,
     });
   };
+
+  generateRandomNumber = () => {
+    const { maxNumber, minNumber } = this.state;
+    this.setState({
+      generate: Math.floor(Math.random() * (maxNumber - minNumber) + minNumber),
+    });
+  };
+
   render() {
     return (
       <div>
@@ -30,6 +39,7 @@ export default class PracticeTask extends Component {
           value={this.state.minNumber}
           onChange={this.onInputChange}
         />
+        <button onClick={this.generateRandomNumber}></button>
         <p>{this.state.generate}</p>
       </div>
     );
