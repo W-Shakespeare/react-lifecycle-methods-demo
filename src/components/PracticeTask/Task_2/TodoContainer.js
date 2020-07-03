@@ -27,6 +27,12 @@ class TodoContainer extends Component {
     });
   };
 
+  deleteTodo = (id) => {
+    this.state({
+      arrTodo: this.state.arrTodo.filter((obj) => obj.id !== id),
+    });
+  };
+
   render() {
     return (
       <div>
