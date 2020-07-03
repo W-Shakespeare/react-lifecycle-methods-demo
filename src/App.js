@@ -1,12 +1,12 @@
 import React from "react";
 import MostlyUsed from "./components/MostlyUsed";
 import RarelyUsed from "./components/RarelyUsed";
-import PracticeTask from "./components/PracticeTask";
+import PracticeTask from "./components/PracticeTask/Task_2/index";
 import "./App.css";
 
 function Header({ setStep }) {
-  const handleClick = step => {
-    setStep(step)
+  const handleClick = (step) => {
+    setStep(step);
   };
 
   return (
@@ -17,7 +17,7 @@ function Header({ setStep }) {
         <li onClick={() => handleClick(3)}>Practice task</li>
       </ul>
     </nav>
-  )
+  );
 }
 
 function App() {
@@ -32,13 +32,14 @@ function App() {
       default:
         return <PracticeTask />;
     }
-  }
+  };
 
   console.clear();
   return (
     <div className="App">
-      <Header setStep={setStep} />
-      {renderRightComponent()}
+      {/* <Header setStep={setStep} />      
+      {renderRightComponent()} */}
+      <PracticeTask />
     </div>
   );
 }

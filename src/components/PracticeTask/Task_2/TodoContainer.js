@@ -15,21 +15,26 @@ class TodoContainer extends Component {
     });
   };
 
+  addTodo = (e) => {
+    e.preventDefault();
+    let obj = {
+      id: Date.now(),
+      todo: this.state.inputValue,
+    };
+    this.setState({
+      arrTodo: [...this.state.arrTodo, obj],
+    });
+  };
+
   render() {
     return (
       <div>
-        <ul>
-          {this.state.arrTodo.map((objTodo) => {
-            return (
-              <TodoComponent
-                todo={objTodo.todo}
-                id={objTodo.id}
-                inputValue={this.state.inputValue}
-                handleChange={this.handleChange}
-              />
-            );
-          })}
-        </ul>
+        <TodoComponent
+          arrTodo={this.state.arrTodo}
+          inputValue={this.state.inputValue}
+          handleChange={this.handleChange}
+          addTodo={this.addTodo}
+        />
       </div>
     );
   }
