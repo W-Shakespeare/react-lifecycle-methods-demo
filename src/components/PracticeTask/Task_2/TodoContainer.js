@@ -23,6 +23,7 @@ class TodoContainer extends Component {
     };
     this.setState({
       arrTodo: [...this.state.arrTodo, obj],
+      inputValue: "",
     });
   };
 
