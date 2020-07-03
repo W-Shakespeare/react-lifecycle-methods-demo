@@ -1,6 +1,12 @@
 import React from "react";
 
-function TodoComponent({ inputValue, handleChange, addTodo, arrTodo }) {
+function TodoComponent({
+  inputValue,
+  handleChange,
+  addTodo,
+  arrTodo,
+  deleteTodo,
+}) {
   return (
     <div>
       <form onSubmit={addTodo}>
@@ -9,7 +15,12 @@ function TodoComponent({ inputValue, handleChange, addTodo, arrTodo }) {
       </form>
       <ul style={{ flexDirection: "column" }}>
         {arrTodo.map((objTodo) => {
-          return <li key={objTodo.id}>{objTodo.todo}</li>;
+          return (
+            <div>
+              <li key={objTodo.id}>{objTodo.todo}</li>
+              <button onClick={() => deleteTodo(objTodo.id)}>Delete</button>
+            </div>
+          );
         })}
       </ul>
     </div>

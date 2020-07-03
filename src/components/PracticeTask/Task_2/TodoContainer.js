@@ -28,7 +28,8 @@ class TodoContainer extends Component {
   };
 
   deleteTodo = (id) => {
-    this.state({
+    console.log(id);
+    this.setState({
       arrTodo: this.state.arrTodo.filter((obj) => obj.id !== id),
     });
   };
@@ -41,6 +42,7 @@ class TodoContainer extends Component {
           inputValue={this.state.inputValue}
           handleChange={this.handleChange}
           addTodo={this.addTodo}
+          deleteTodo={this.deleteTodo}
         />
       </div>
     );
