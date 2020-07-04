@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper_ShowPictureComponent {
+  display: flex;
+}
+img {
+  width: 600px;
+  height: 500px;
+  margin: 7px;
+}
