@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./BookMarkContainer";
+import BookmarkComponent from "./BookmarkComponent";
 export default class PracticeTask extends Component {
   render() {
     return (
