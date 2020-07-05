@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function BookmarkComponent() {
+export default function BookmarkComponent({
+  siteName,
+  siteUrl,
+  onInputChange,
+}) {
   return (
     <div className="container">
       <div className="header clearfix">
@@ -17,7 +21,10 @@ export default function BookmarkComponent() {
             <input
               type="text"
               className="form-control"
+              onChange={onInputChange}
+              value={siteName}
               id="siteName"
+              name="siteName"
               placeholder="Website Name"
             />
           </div>
@@ -27,7 +34,10 @@ export default function BookmarkComponent() {
             <input
               type="text"
               className="form-control"
+              onChange={onInputChange}
+              value={siteUrl}
               id="siteUrl"
+              name="siteUrl"
               placeholder="Website URL"
             />
           </div>
