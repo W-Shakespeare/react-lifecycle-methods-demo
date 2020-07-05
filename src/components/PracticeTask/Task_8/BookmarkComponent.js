@@ -4,6 +4,7 @@ export default function BookmarkComponent({
   siteName,
   siteUrl,
   onInputChange,
+  bookmarks,
 }) {
   return (
     <div className="container">
@@ -50,7 +51,25 @@ export default function BookmarkComponent({
 
       <div className="row marketing">
         <div className="col-lg-12">
-          <div id="bookmarksResult"></div>
+          <div id="bookmarksResult">
+            {bookmarks.map((boormarkObj) => {
+              <div class="well">
+                <h3>
+                  {boormarkObj.name}
+                  <a
+                    class="btn btn-default"
+                    target="_blank"
+                    href={boormarkObj.url}
+                  >
+                    Visit
+                  </a>
+                  <a onclick={deleteBookmark} class="btn btn-danger" href="#">
+                    Delete
+                  </a>
+                </h3>
+              </div>;
+            })}
+          </div>
         </div>
       </div>
 
