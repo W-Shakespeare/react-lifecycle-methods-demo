@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import BookmarkComponent from "./BookmarkComponent";
+import BookmarkContainer from "./BookmarkContainer";
 export default class PracticeTask extends Component {
   render() {
     return (
       <div>
-        <BookmarkComponent />
+        <BookmarkContainer />
       </div>
     );
   }
