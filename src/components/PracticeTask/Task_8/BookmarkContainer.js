@@ -16,18 +16,44 @@ export default class BookmarkContainer extends React.Component {
     if (!this.validateForm(this.state.siteName, this.state.siteUrl)) {
       return false;
     }
-
+    // Init bookmark array};
     let bookmark = {
       name: this.state.siteName,
       url: this.state.siteUrl,
     };
-    //Add new book then clear form
+
+    if (localStorage.getItem("bookmarks") === null) {
+      let bookmarks = [];
+      // Add to array
+      bookmarks.push(bookmark);
+      // Add to State
+      this.setState({
+        bookmarks: [...this.state.bookmarks, bookmark],
+      });
+
+      // Set to LocalStorage
+      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    } else {
+      // Get bookmarks from LocalStorage
+      var bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+
+      // Add bookmarks to array
+      bookmarks.push(bookmark);
+      //Add to State
+      this.setState({
+        bookmarks: [...this.state.bookmarks, bookmark],
+      });
+
+      // Re-set back to LocalStorage
+      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    }
+    e.preventDefault();
+
+    //A d new book then clear form
     this.setState({
-      bookmarks: [...this.state.bookmarks, bookmark],
       siteName: "",
       siteUrl: "",
     });
-    // e.preventDefault();
   };
   validateForm = (siteName, siteUrl) => {
     if (!siteName || !siteUrl) {
@@ -53,6 +79,7 @@ export default class BookmarkContainer extends React.Component {
         siteUrl={this.state.siteUrl}
         onInputChange={this.onInputChange}
         bookmarks={this.state.bookmarks}
+        saveBookmark={this.saveBookmark}
       />
     );
   }
