@@ -5,6 +5,8 @@ export default function BookmarkComponent({
   siteUrl,
   onInputChange,
   bookmarks,
+  saveBookmark,
+  deleteBookmark,
 }) {
   return (
     <div className="container">
@@ -16,7 +18,7 @@ export default function BookmarkComponent({
       <div className="jumbotron">
         <h2>Bookmark your favorite Sites</h2>
 
-        <form id="myForm">
+        <form id="myForm" onSubmit={saveBookmark}>
           <div className="form-group">
             <label htmlFor="">Site Name</label>
             <input
@@ -53,21 +55,27 @@ export default function BookmarkComponent({
         <div className="col-lg-12">
           <div id="bookmarksResult">
             {bookmarks.map((boormarkObj) => {
-              <div class="well">
-                <h3>
-                  {boormarkObj.name}
-                  <a
-                    class="btn btn-default"
-                    target="_blank"
-                    href={boormarkObj.url}
-                  >
-                    Visit
-                  </a>
-                  <a onclick={deleteBookmark} class="btn btn-danger" href="#">
-                    Delete
-                  </a>
-                </h3>
-              </div>;
+              return (
+                <div className="well" key={boormarkObj.url}>
+                  <h3>
+                    {boormarkObj.name}
+                    <a
+                      className="btn btn-default"
+                      target="_blank"
+                      href={boormarkObj.url}
+                    >
+                      Visit
+                    </a>
+                    <a
+                      onClick={() => deleteBookmark(boormarkObj.url)}
+                      className="btn btn-danger"
+                      href="#"
+                    >
+                      Delete
+                    </a>
+                  </h3>
+                </div>
+              );
             })}
           </div>
         </div>

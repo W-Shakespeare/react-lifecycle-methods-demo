@@ -72,7 +72,18 @@ export default class BookmarkContainer extends React.Component {
     return true;
   };
 
+  deleteBookmark = (url) => {
+    let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    let newBookmarks = bookmarks.filter(
+      (bookmarkObj) => bookmarkObj.url !== url
+    );
+    this.setState({
+      bookmarks: newBookmarks,
+    });
+    localStorage.setItem("bookmarks", JSON.stringify(newBookmarks));
+  };
   render() {
+    console.log(this.state);
     return (
       <BookmarkComponent
         siteName={this.state.siteName}
@@ -80,6 +91,7 @@ export default class BookmarkContainer extends React.Component {
         onInputChange={this.onInputChange}
         bookmarks={this.state.bookmarks}
         saveBookmark={this.saveBookmark}
+        deleteBookmark={this.deleteBookmark}
       />
     );
   }
