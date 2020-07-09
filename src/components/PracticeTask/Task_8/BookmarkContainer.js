@@ -6,6 +6,10 @@ export default class BookmarkContainer extends React.Component {
     this.state = { siteName: "", siteUrl: "", bookmarks: [] };
   }
 
+  componentDidMount() {
+    this.fetchBookmarks();
+  }
+
   onInputChange = (e) => {
     const { name, value } = e.target;
     this.setState({
