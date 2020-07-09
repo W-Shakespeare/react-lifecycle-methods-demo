@@ -12,6 +12,16 @@ export default class BookmarkContainer extends React.Component {
       [name]: value,
     });
   };
+
+  fetchBookmarks = () => {
+    // Get bookmarks from LocalStorage and
+    let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    //Add to State
+    this.setState({
+      bookmarks: bookmarks,
+    });
+  };
+
   saveBookmark = (e) => {
     if (!this.validateForm(this.state.siteName, this.state.siteUrl)) {
       return false;
