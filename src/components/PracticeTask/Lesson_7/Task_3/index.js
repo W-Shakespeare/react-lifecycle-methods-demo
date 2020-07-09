@@ -6,11 +6,11 @@ const style = {
 };
 
 const Dog = ({ image, none }) => {
-  return <img style={{ ...style, display: none }} src={image} />;
+  return <img alt={"dog"} style={{ ...style, display: none }} src={image} />;
 };
 
 const Cat = ({ image, none }) => {
-  return <img style={{ ...style, display: none }} src={image} />;
+  return <img alt={"cat"} style={{ ...style, display: none }} src={image} />;
 };
 
 const Pet = ({ animal, onlyDog, onlyCat, allAnimals }) => {
@@ -58,10 +58,14 @@ export default class App extends React.Component {
             />
           );
         })}
-
-        <button onClick={() => this.show(true)}>onlyDog</button>
-        <button onClick={() => this.show(false, true)}>onlyCat</button>
-        <button onClick={() => this.show(false, false, true)}>All</button>
+        {Object.keys(this.state).map((btnAnimal) => (
+          <button
+            key={btnAnimal.toString()}
+            onClick={() => this.show(btnAnimal)}
+          >
+            {btnAnimal}
+          </button>
+        ))}
       </div>
     );
   }
