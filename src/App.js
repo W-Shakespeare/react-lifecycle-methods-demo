@@ -1,7 +1,7 @@
 import React from "react";
 import MostlyUsed from "./components/MostlyUsed";
 import RarelyUsed from "./components/RarelyUsed";
-import PracticeTask from "./components/PracticeTask/Lesson_7/Task_9/index";
+import PracticeTask from "./components/PracticeTask/Lesson_7/Task_10/index";
 import "./App.css";
 
 function Header({ setStep }) {
