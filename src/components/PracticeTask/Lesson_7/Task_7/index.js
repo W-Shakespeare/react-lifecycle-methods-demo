@@ -11,6 +11,7 @@ export default class PracticeTask_7_lesson_7 extends Component {
     const { score } = this.state;
     return (
       <div>
+        <p>{score}</p>
         <h1>
           {score === 0
             ? "Do you need click on button"
@@ -22,7 +23,14 @@ export default class PracticeTask_7_lesson_7 extends Component {
             ? "Your result is excellent"
             : "Your result is excellent"}
         </h1>
-        <button onClick={() => this.setState({ score: score + 1 })}></button>
+        <button
+          onClick={() =>
+            //I can use function setState, but object setState call only one more time
+            this.setState({
+              score: score === 9 ? 0 : score + 1,
+            })
+          }
+        ></button>
       </div>
     );
   }
