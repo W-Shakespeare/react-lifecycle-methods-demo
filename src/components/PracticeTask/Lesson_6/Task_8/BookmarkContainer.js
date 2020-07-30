@@ -19,7 +19,11 @@ export default class BookmarkContainer extends React.Component {
 
   fetchBookmarks = () => {
     // Get bookmarks from LocalStorage and
+
     let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    if (bookmarks == null) {
+      return (bookmarks = []);
+    }
     //Add to State
     this.setState({
       bookmarks: bookmarks,
