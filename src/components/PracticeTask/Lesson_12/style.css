@@ -1,0 +1,102 @@
+p {
+}
+body {
+  background-color: gray;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.wrapper .other {
+  left: 100px;
+  top: 100px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.other form {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper .comment {
+  margin-top: 30px;
+  /* width: 70%; */
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+  width: 500px;
+  min-height: 250px;
+}
+.card:hover .card-header {
+  transition: all 1s ease-out;
+  background-color: gray;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: gainsboro;
+  transition: all 1s ease-out;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+.editIcon {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.editIcon-allIcons {
+  transition: all 0.7s ease-out;
+  cursor: pointer;
+  background-color: "#343a40";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 20%;
+}
+.editIcon-thumbUpIcon:hover {
+  transition: all 0.6s ease-out;
+  background-color: rgba(0, 153, 255, 0.698);
+}
+.editIcon-editIcon:hover {
+  transition: all 0.6s ease-out;
+  background-color: rgba(153, 205, 50, 0.582);
+}
+.editIcon-thumbDownAltIcon:hover {
+  transition: all 0.6s ease-out;
+  background-color: rgb(226, 119, 119);
+}
+.p-like {
+  position: absolute;
+  left: 50px;
+}
+.p-dislike {
+  position: absolute;
+  right: 50px;
+}
+.card-text {
+  transition: all 0.8s ease-out;
+  color: gainsboro;
+}
+
+.card-text textarea {
+  opacity: 0.7;
+  width: 100%;
+}
